@@ -9,7 +9,6 @@ import { Session } from "next-auth";
 
 export function User() {
   const [session, setSession] = useState<Session | null>(null);
-  console.log("session", session);
 
   useEffect(() => {
     (async () => {
@@ -19,7 +18,6 @@ export function User() {
   }, []);
 
   const user = session?.user;
-  console.log("user = ", user);
 
   if (!user) {
     return (

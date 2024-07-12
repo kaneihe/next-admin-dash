@@ -31,8 +31,7 @@ export async function CreateNewCustomer(prevState: State, formData: FormData) {
     username: formData.get("username"),
     email: formData.get("email"),
   });
-
-  console.log("validatedFields = ", validatedFields);
+  
   // If form validation fails, return errors early. Otherwise, continue.
   if (!validatedFields.success) {
     return {
@@ -107,7 +106,6 @@ export async function UpdateCustomer(prevState: State, formData: FormData) {
 
 
 export async function deleteCustomer(id: number) {
-  console.log("deleteCustomer = ", id);
   // throw new Error('删除发票失败');
   try {
     await deleteCustomerById(id);    

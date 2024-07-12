@@ -24,7 +24,6 @@ export function Search(props: {value?: string}) {
   // 监听搜索关键字的变化，并更新URL查询参数
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    console.log('value = ', value);
     
     // 根据关键字的值来设置或删除查询参数
     if (value === undefined) {

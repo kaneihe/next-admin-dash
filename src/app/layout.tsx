@@ -11,12 +11,7 @@ import {
   Users2,
 } from "lucide-react";
 import { Analytics } from "@vercel/analytics/react";
-import {
-  Logo,
-  SettingsIcon,
-  UsersIcon,
-  VercelLogo,
-} from "@/app/components/ui/icons";
+import { VercelLogo} from "@/app/components/ui/icons";
 import { User } from "./user";
 import { NavItem } from "./nav-item";
 import ProviderWrapper from "./components/sessionProviderWrapper";
@@ -25,7 +20,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "./components/ui/tooltip";
-import { Search } from "./search";
 import { Sheet, SheetContent, SheetTrigger } from "./components/ui/sheet";
 import { Button } from "./components/ui/button";
 import {

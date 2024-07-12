@@ -9,7 +9,6 @@ export default async function ProductsPage({
 }: {
   searchParams: { q: string; offset: string };
 }) {
-  console.log('searchParams = ', searchParams);
   const search = searchParams.q ?? '';
   const offset = searchParams.offset ?? 0;
   const { products, newOffset, totalProducts } = await getProducts(

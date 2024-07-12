@@ -34,10 +34,9 @@ export function CustomersTable({
   }
 
   function nextPage() {
-    console.log("create offset = ",offset);
     router.push(`/dashboard/customers?offset=${offset}&q=${q}`, { scroll: false });
   }
-  console.log("offset = ",offset);
+ 
   return (
     <>
       <div className="border shadow-sm rounded-lg">
@@ -92,8 +91,8 @@ export function CustomersTable({
 function UserRow({ customer }: { customer: Customer }) {
   const router = useRouter();
   // 提取用户ID，用于后续删除操作。
-  const customerId = customer.id;  
-  console.log("customerId = ",customerId);
+  const customerId = customer.id; 
+  
   // 返回表格行，其中包含用户的名字、邮箱、用户名、用户ID的链接和一个删除按钮。
   return (
     <TableRow>

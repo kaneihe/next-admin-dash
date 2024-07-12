@@ -41,8 +41,7 @@ export async function getCustomers(
   newOffset: number | null;
   totalCustomers: number;
 }> {
-  console.log("db offset = ", offset);
-  console.log("db search = ", search);
+ 
   // 获取数据库客户端
   const client = await getClient();
   try {
@@ -82,7 +81,7 @@ export async function getCustomers(
     const count = await client.query("SELECT COUNT(*) FROM clients");
 
     const totalCustomers = parseInt(count.rows[0].count);
-    console.log("res.rows = ", res.rows);
+    
     // 返回分页结果和新的偏移量
     return { customers: res.rows, newOffset: newOffset, totalCustomers };    
   } finally {
@@ -146,8 +145,7 @@ export async function InsertNewCustomer(
     // 准备SQL查询的参数，即新客户的信息
     const params = [name, username, email];
     // 执行SQL查询，插入新客户信息
-    const res = await client.query(sqlQuery, params);
-    console.log("Insert customer:", res.rows[0]);
+    const res = await client.query(sqlQuery, params);    
   } catch (error) {
     console.log("error = ", error);
   } finally {
@@ -170,10 +168,9 @@ export async function UpdateClient(
       "UPDATE clients SET name = $1, username = $2, email = $3 WHERE id = $4 RETURNING *";
     // 准备SQL查询的参数，即新客户的信息
     const params = [name, username, email, id];
-    console.log("Updating params...", params);
+    
     // 执行SQL查询，插入新客户信息
-    const res = await client.query(sqlQuery, params);
-    console.log("Updated customer:", res.rows[0]);
+    const res = await client.query(sqlQuery, params);    
   } catch (error) {
     console.error("Error updating customer:", error);
   } finally {
@@ -240,11 +237,10 @@ export async function getProducts(
       "SELECT * FROM products ORDER BY id LIMIT $1 OFFSET $2",
       [limit, offset]
     );
-    // console.log("products = ", res);
+    
     // 计算新的偏移量，如果没有更多用户，则为null
     // 判断是否有更多数据
     const newOffset = res.rows.length >= limit ? offset + limit : null;
-    console.log("newOffset = ", newOffset);
     const count = await client.query("SELECT COUNT(*) FROM products");
     const totalProducts = parseInt(count.rows[0].count);
 
